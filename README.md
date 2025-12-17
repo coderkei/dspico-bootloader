@@ -2,16 +2,16 @@
 This is the repository for the DSpico Bootloader. It is a small NDS rom that initializes the DSpico and uses [Pico Loader](https://github.com/LNH-team/pico-loader) to boot the nds file at `fat:/_picoboot.nds`.
 
 ## Setup & configuration
-We recommend using WSL (Windows Subsystem for Linux), or MSYS2 to compile this repository.
+We recommend using WSL (Windows Subsystem for Linux), MSYS2 or Unix-based machine to compile this repository.
 The steps provided will assume you already have one of those environments set up.
 
-1. Install [BlocksDS](https://blocksds.skylyrac.net/docs/setup/options/).
+1. Install [BlocksDS](https://blocksds.skylyrac.net/docs/setup/).
 2. To be able to use this bootloader, compile [Pico Loader](https://github.com/LNH-team/pico-loader) and place the files on your SD card.
 3. Place the rom to boot on the root of your SD card as `_picoboot.nds`.
 
 ## Compiling
 1. Compile the bootloader by running `make`
-2. Patch `BOOTLOADER.nds` with the [DSpico DLDI driver](https://github.com/LNH-team/dspico-dldi) using dlditool:
+2. Patch `BOOTLOADER.nds` with the [DSpico DLDI driver](https://github.com/LNH-team/dspico-dldi) using [dlditool](https://www.chishm.com/DLDI/):
     - `dlditool DSpico.dldi BOOTLOADER.nds`
 3. Prepare `BOOTLOADER.nds` for use on a cartridge using [DSRomEncryptor](https://github.com/Gericom/DSRomEncryptor):
     - `DSRomEncryptor BOOTLOADER.nds BOOTLOADER.nds`
